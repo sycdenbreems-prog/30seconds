@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src https://random-words-api.vercel.app; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#1d5fe0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="30 Seconds">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>30 Seconds</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+<section class="scr" id="setup">
+ <div class="logo"><b>30 SECONDS</b><small>Omschrijf 5 woorden in 30 seconden</small></div>
+ <div class="card">
+  <h2>Teams</h2>
+  <label>Aantal teams</label>
+  <div class="seg" id="tc"></div>
+  <div id="tn"></div>
+ </div>
+ <div class="card">
+  <h2>Spelregels</h2>
+  <label>Tijd per beurt</label>
+  <div class="seg" id="du"></div>
+  <label>Eerste team met</label>
+  <div class="seg" id="tg"></div>
+ </div>
+ <div class="sp"></div>
+ <button class="btn" id="go" type="button">Start spel</button>
+ <button class="btn l hide" id="cont" type="button">Verder met vorig spel</button>
+</section>
+
+<section class="scr" id="intro">
+ <div class="top"><span class="chip" id="iRound"></span><span class="chip" id="iCards"></span></div>
+ <div class="sp ctr mid">
+  <div class="mu">De beurt is aan</div>
+  <div class="big xl" id="iTeam"></div>
+  <div class="mu">Geef de telefoon aan degene die omschrijft.<br>De rest raadt!</div>
+  <div class="stage sm"><div class="deck"><div class="face back"><div class="n">?</div><div class="t">Kaartenstapel</div></div></div></div>
+ </div>
+ <button class="btn" id="draw" type="button">Trek een kaart</button>
+ <button class="btn l" id="toBoard" type="button">Bekijk stand</button>
+</section>
+
+<section class="scr" id="draws">
+ <div class="top"><span class="chip" id="dTeam"></span><span class="chip" id="dPts">0 punten</span></div>
+ <div class="ctr"><div class="tm" id="tm">30</div></div>
+ <div class="bar"><i id="bar"></i></div>
+ <div class="sp mid">
+  <div class="stage"><div class="flip" id="flip">
+   <div class="face back"><div class="n" id="cardNo">#1</div><div class="t">Tik om te draaien — de tijd start meteen!</div></div>
+   <div class="face front"><div class="mu tag" id="cardTag"></div><div id="cardWords" class="full"></div></div>
+  </div></div>
+ </div>
+ <button class="btn l" id="stopT" type="button">Stop beurt</button>
+</section>
+
+<section class="scr" id="review">
+ <div class="logo mb"><div class="big">Tijd is om! ⏱</div><div class="mu">Dit zijn de geraden woorden</div></div>
+ <div class="card"><div id="rWords"></div><div class="ctr big mt" id="rPts"></div></div>
+ <div class="sp"></div>
+ <button class="btn g" id="confirm" type="button">Punten opslaan</button>
+</section>
+
+<section class="scr" id="board">
+ <div class="logo mb"><div class="big">Stand</div><div class="mu" id="bSub"></div></div>
+ <div class="card" id="bList"></div>
+ <div class="sp"></div>
+ <button class="btn" id="next" type="button">Volgende beurt</button>
+ <button class="btn l" id="quit" type="button">Nieuw spel</button>
+</section>
+
+<section class="scr" id="end">
+ <div class="trophy pop">🏆</div>
+ <div class="ctr"><div class="mu">Winnaar</div><div class="big win" id="eWin"></div><div class="mu" id="eSub"></div></div>
+ <div class="card mt2" id="eList"></div>
+ <div class="sp"></div>
+ <button class="btn" id="again" type="button">Nieuw spel</button>
+</section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
